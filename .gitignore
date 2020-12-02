@@ -1,6 +1,2 @@
 .vscode/
 node_modules/
-.deployment
-.env
-package-lock.json
-
