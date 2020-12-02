@@ -1,0 +1,77 @@
+        
+        <div class="main_art">
+            <div class="row article_rows">
+                <div class="col-md-12 basic_picture">
+                    <img src="/img/{{basic_picture}}" alt="">
+                </div>
+                
+            </div>
+            {{#if expire}}
+                <div class="row article_rows">
+                    <div class="col-md-3">
+                    </div>
+
+                    <div class="col-md-8 ">
+                        
+                            <div class="col-md-12 expired_event" >
+                                Η εκδήλωση αυτή δεν είναι πλέον διαθέσιμη
+                            </div>
+                        
+                    </div>
+                </div>
+            {{/if}}
+
+            <div class="row article_rows">
+                <div class="col-md-3 dates">
+                    <h6>ΗΜΕΡΟΜΗΝΙΕΣ</h6>
+                    <div>
+                        <a href="/date/{{start_date}}" class="start_date">{{start_date}}</a> - <a href="/date/{{end_date}}" class="end_date">{{end_date}}</a> 
+                    </div>
+                </div>
+
+                <div class="col-md-8 title">
+                    <h1>{{{title}}}</h1>
+                </div>
+            </div>
+
+            <div class="row article_rows">
+                <div class="col-md-3 categories">
+                    <h6>ΚΑΤΗΓΟΡΙΕΣ</h6>
+                    <div>
+                        <a href="/category/{{category}}">{{category}}</a>
+                    </div>
+                </div>
+
+                <div class="col-md-8 article">
+                   {{{text}}}
+                    
+                </div>
+            </div>
+
+            <div class="row article_rows">
+                <div class="col-md-12 fotografies">
+                    <h1>ΦΩΤΟΓΡΑΦΙΕΣ</h1>
+                </div>
+            </div>
+            
+            <div class="row gal_row">
+                {{#each image}}
+                    <div class="col-md-3 gal_col">
+                        <a href="" data-toggle="modal" data-target="#imgmodal{{@index}}">
+                            <img src="/img/{{this}}" alt="">
+                        </a>
+                        <div class="modal fade" id="imgmodal{{@index}}">
+                            <div class="modal-dialog md">
+                                <div class="modal-content">
+                                    <img src="/img/{{this}}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+
+        </div>
+
+
+        <script src="/js/article_background.js"></script>

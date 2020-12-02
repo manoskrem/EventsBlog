@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{pageTitle}}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="/css/form_style.css" rel="stylesheet" type="text/css"> 
+    <link rel="stylesheet" href="/css/article.css">
+    <link rel="stylesheet" href="/css/categories.css">
+    <link rel="stylesheet" href="/css/confirm.css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link href="/fontawesome-free-5.13.0-web/css/all.css" rel="stylesheet"> <!--load all styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&family=Roboto+Mono:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron d-none d-lg-block">          
+            <div class="row j_row">
+                <div class="col-lg-2 j_col">
+                    <a href="/"><img src="/img/logo.png" title="events"></a>
+                </div>
+                <div class="col-lg-6 j_col">
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="color:#fff; background-color: #222; border-color: #080808;">
+                            <i class="fa fa-map-marker-alt" style="color: #fd0505"></i>
+                            &nbsp;{{city}}
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="/">ΟΛΕΣ ΟΙ ΠΟΛΕΙΣ</a>
+                          <a class="dropdown-item" href="/city/ΑΘΗΝΑ"></i>ΑΘΗΝΑ</a>
+                          <a class="dropdown-item" href="/city/ΘΕΣΣΑΛΟΝΙΚΗ">ΘΕΣΣΑΛΟΝΙΚΗ</a>
+                          <a class="dropdown-item" href="/city/ΠΑΤΡΑ">ΠΑΤΡΑ</a>
+                          <a class="dropdown-item" href="/city/ΕΠΙΔΑΥΡΟΣ">ΕΠΙΔΑΥΡΟΣ</a>
+                        </div>
+                    </div>
+                </div>
+                {{#if guest}}
+                    <div class="col-lg-2 j_col j_col_login">
+                        {{!-- <button class="btn btn-primary login" id="loginButton" data-toggle="modal" data-target="#loginModal" style="background-color: #222; border-color: #080808; "> --}}
+                        <button class="btn btn-primary login" id="loginButton" onclick="window.location.href='/login';" style="background-color: #222; border-color: #080808; ">
+                            ΣΥΝΔΕΣΗ
+                            <i class="fas fa-sign-in-alt" style="color: #5fb839;"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="col-lg-2 j_col ">
+                        <button class="btn btn-primary sign-up" id="signupButton"onclick="window.location.href='/register';" style="background-color: #222; border-color: #080808;">
+                            ΕΓΓΡΑΦΗ
+                            <i class="fas fa-pen" style="color: #5fb839;"></i>
+                        </button>
+                    </div>
+                {{else}}
+                    <div class="col-lg-1 j_col "></div>
+                    <div class="col-lg-2 j_col ">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="color:#fff; background-color: #222; border-color: #080808;">
+                            
+                            <i class="fas fa-user-circle"style="color: #5fb839;"></i>&nbsp;
+                            {{username}}
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/profile"><i class="fas fa-user"style="color: #5fb839; padding-left:0;"></i>&nbsp;MY PROFILE</a>
+                            <a class="dropdown-item" href="/favourites"><i class="fas fa-heart" style="color: #5fb839;"></i>&nbsp;ΑΓΑΠΗΜΕΝΑ</a>
+                            <a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt" style="color: #5fb839;"></i>&nbsp;ΕΞΟΔΟΣ</a>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+        </div> 
+
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #222;">
+            <button class="navbar-toggler tog" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Brand/logo -->
+            <a class="navbar-brand d-lg-none " href="/"><img src="/img/logo2.png" title="events" class="logo"></a>
+            {{#if guest}}
+                <button class="btn btn-primary login d-lg-none" id="loginButton" onclick="window.location.href='/login';" style="background-color: #222; border-color: #080808; ">
+                    ΣΥΝΔΕΣΗ
+                    <i class="fas fa-sign-in-alt" style="color: #5fb839;"></i>
+                </button>
+            {{else}}
+                <div class="d-lg-none" style="position: relative;">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="color:#fff; background-color: #222; border-color: #080808;">
+                        <i class="fas fa-user"style="color: #5fb839;"></i>&nbsp;
+                        {{username}}
+                    </button>
+                
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/profile"><i class="fas fa-user"style="color: #5fb839; padding-left:0;"></i>&nbsp;MY PROFILE</a>
+                        <a class="dropdown-item" href="/favourites"><i class="fas fa-heart" style="color: #5fb839;"></i>&nbsp;ΑΓΑΠΗΜΕΝΑ</a>
+                        <a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt" style="color: #5fb839;"></i>&nbsp;ΕΞΟΔΟΣ</a>
+                          
+                    </div>
+                </div>
+                
+            {{/if}}
+
+            <!-- Links -->
+            <div class="collapse navbar-collapse toggle-menu" id="navbarTogglerDemo01">
+                <ul class="navbar-nav" >
+                    <li class="nav-item dropdown d-lg-none tog_city">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-map-marker-alt" style="color: #fd0505"></i>
+                            &nbsp;{{city}}
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/">ΟΛΕΣ ΟΙ ΠΟΛΕΙΣ</a>
+                            <a class="dropdown-item" href="/city/ΑΘΗΝΑ">ΑΘΗΝΑ</a>
+                            <a class="dropdown-item" href="/city/ΘΕΣΣΑΛΟΝΙΚΗ">ΘΕΣΣΑΛΟΝΙΚΗ</a>
+                            <a class="dropdown-item" href="/city/ΠΑΤΡΑ">ΠΑΤΡΑ</a>
+                            <a class="dropdown-item" href="/city/ΕΠΙΔΑΥΡΟΣ">ΕΠΙΔΑΥΡΟΣ</a>
+                        </div>
+                    
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/category/CINEMA">
+                            CINEMA
+                            <i class="fas fa-film"></i>
+                             &nbsp;
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/category/ΘΕΑΤΡΟ">
+                            ΘΕΑΤΡΟ 
+                            <i class="fas fa-theater-masks"></i>
+                            &nbsp;
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/category/ΜΟΥΣΙΚΗ">
+                            ΜΟΥΣΙΚΗ 
+                            <i class="fas fa-music"></i>
+                            &nbsp;
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/category/ΕΚΘΕΣΕΙΣ">
+                            ΕΚΘΕΣΕΙΣ 
+                            <i class="fas fa-paint-brush"></i>
+                             &nbsp;
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/category/SPORTS">
+                            ΑΘΛΗΤΙΚΕΣ ΕΚΔΗΛΩΣΕΙΣ
+                            <i class="fas fa-running"></i>
+                             &nbsp;
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+        </nav>
+
+        {{{body}}}  
+
+        <div class="jumbotron sec_jumbotron">          
+            <div class="row j_row">
+                <div class="col-lg-2 j_col">
+                    <a href="/"><img src="/img/logo2.png" title="events"></a>
+                </div>
+                <div class="col-lg-3 j_col"></div>
+                 
+                <div class="col-lg-2 j_col">
+                    <ul>
+                        <li>ΠΟΛΗ</li>
+                        <li><a href="/">ΟΛΕΣ ΟΙ ΠΟΛΕΙΣ</a></li>
+                        <li><a href="/city/ΑΘΗΝΑ">ΑΘΗΝΑ</a></li>
+                        <li><a href="/city/ΘΕΣΣΑΛΟΝΙΚΗ">ΘΕΣΣΑΛΟΝΙΚΗ</a></li>
+                        <li><a href="/city/ΠΑΤΡΑ">ΠΑΤΡΑ</a></li>
+                        <li><a href="/city/ΕΠΙΔΑΥΡΟΣ">ΕΠΙΔΑΥΡΟΣ</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 j_col"></div>
+
+                <div class="col-lg-2 j_col">
+                    <ul>
+                        <li>ΚΑΤΗΓΟΡΙΑ</li>
+                        <li><a href="/category/CINEMA">CINEMA</a></li>
+                        <li><a href="/category/ΘΕΑΤΡΟ">ΘΕΑΤΡΟ</a></li>
+                        <li><a href="/category/ΜΟΥΣΙΚΗ">ΜΟΥΣΙΚΗ</a></li>
+                        <li><a href="/category/ΕΚΘΕΣΕΙΣ">ΕΚΘΕΣΕΙΣ</a></li>
+                        <li><a href="/category/SPORTS">ΑΘΛΗΤΙΚΕΣ ΕΚΔΗΛΩΣΕΙΣ</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+       
+    </div>
+
+    {{!-- SCRIPT WITH REACTION BUTTONS FUNCTIONS --}}
+    <script src="/js/responses.js"></script>
+    {{!-- EXISTING FAVOURITES RED ICON --}}
+    <script>
+        const all_favourites = [];
+        let i=0;
+        {{#each favourites}}
+            all_favourites[i]={
+                event_id: {{event_id}}
+            }
+            i++;
+        {{/each}}   
+    
+
+        let fav_buttons = document.querySelectorAll(".favourite");
+        const favourite_icon = document.querySelectorAll(".favourite i"); 
+
+        for(let i=0;i<fav_buttons.length;i++){
+            for(let j=0;j<all_favourites.length;j++){
+                if(fav_buttons[i].getAttribute("event-id")==all_favourites[j].event_id){
+                    favourite_icon[i].className = "fas fa-heart";
+                    favourite_icon[i].style = "color:red";
+                    break;
+                }
+            }
+        }
+
+    </script>
+    {{!-- EXISTING LIKED BLUE ICON  --}}
+    <script>
+            const all_liked = [];
+            i=0;
+            {{#each likes}}
+                all_liked[i]={
+                    event_id: {{event_id}}
+                }
+                i++;
+            {{/each}}   
+        
+
+            let l_buttons = document.querySelectorAll(".like");
+            const l_icon = document.querySelectorAll(".like i"); 
+
+            for(let i=0;i<l_buttons.length;i++){
+                for(let j=0;j<all_liked.length;j++){
+                    if(l_buttons[i].getAttribute("event-id")==all_liked[j].event_id){
+                        l_icon[i].className = "fas fa-thumbs-up";
+                        l_icon[i].style = "color:#4267B2";
+                        break;
+                    }
+                }
+            }
+
+    </script>
+    {{!-- EXISTING LIKE_COUNTER --}}
+    <script>
+        const all_counters = [];
+        i=0;
+        {{#each counters}}
+            all_counters[i]={
+                event_id: {{event_id}},
+                count:{{count}}
+            }
+            i++;
+        {{/each}}  
+
+        let like_count = document.querySelectorAll(".like_counter");
+        for(let i=0;i<like_count.length;i++){
+            for(let j=0;j<all_counters.length;j++){
+                if(like_count[i].getAttribute("event-id")==all_counters[j].event_id){
+                    like_count[i].textContent = all_counters[j].count;
+                    break;
+                }
+            }
+        } 
+
+    </script>
+    {{!-- REACTION BUTTONS --}}
+    <script >
+        {{#if guest}}
+            toLogin();
+        {{else}}
+            react();
+        {{/if}}
+    </script>
+    {{!-- CLIENT SIDE FORM VALIDATION --}}
+    <script src="/js/form-validation.js"></script>
+    
+    {{!-- BOOTSTRAP --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+   
+
+</body>
+</html>

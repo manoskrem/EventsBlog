@@ -1,0 +1,102 @@
+
+
+.main_art{
+    margin-left: 0;
+    margin-right: 0;
+    padding:20px;
+    background-color: #fff;
+    border: 2px solid black;
+    
+    
+    font-size: 10px;
+}
+
+.article_rows , .gal_row{
+    margin-bottom: 20px;
+}
+
+.basic_picture img{
+    width: 100%;
+}
+
+.expired_event{
+    color: red;
+    font-size: 2em;
+    padding: 0;
+}
+
+.dates ,.categories{
+    font-size: 1.6em;
+    
+}
+
+.dates h6, .categories h6{
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.dates div, .categories div{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333; 
+}
+
+.dates a,.categories a{
+    color: #0088ff;
+}
+.article_rows a:hover{
+    text-decoration: none;
+    color: #1c9e75;
+}
+
+.title h1{
+    font-size: 3em;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+
+
+.article{
+    font-size: 2em;
+}
+
+.fotografies h1{
+    font-size: 3em;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+
+.gal_row{
+    margin-left: 0;
+
+    /* height: min-content; */
+}
+
+.gal_col{
+    padding: 5px;
+    max-width: 180px;    
+    max-height: 125px;
+    
+}
+
+.gal_col img{
+    width: 100%;
+    
+    border: 1px solid #333;
+   
+    height: 100%;
+
+}
+.gal_col img:hover{
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 1024px) {
+    .md{
+        min-width: 900px;
+    }
+}
+
+
+
+
+

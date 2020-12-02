@@ -1,0 +1,26 @@
+.confirmation_row{
+    margin: auto;
+}
+
+.confirmation_main{
+    margin: auto;
+    border: 4px solid #222;
+    margin-top: 120px;
+    margin-bottom: 120px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+.confirmation_row1{
+    color: forestgreen;
+    font-weight: 600;
+    border-bottom: 1px solid #222;
+}
+
+.confirmation_main a{
+    color: #5fb839;
+    cursor: pointer;
+}
+.confirmation_main a:hover{
+    text-decoration: underline;
+    color: #5fb839;
+}

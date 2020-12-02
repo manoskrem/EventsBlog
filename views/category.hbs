@@ -1,0 +1,41 @@
+     
+        
+        <div class="main">
+            
+            <div class="row banner"><img src="{{banner}}" alt=""></div>
+            
+            <div class="text_header" >
+                <h3>
+                    <a href="{{category}}" > &nbsp; {{category}} &nbsp;</a>
+                </h3>
+            </div>
+            
+            <div class="row latest_rows"> 
+                {{#each events}}
+                    <div class="col-md-4 latest_cols">
+                        <div class="row img_row">
+                            <a href="/articles/{{this.event_id}}" class="img_link"><img src="/img/{{this.image}}" alt="" class="placeholder"></a>
+                        </div>
+
+                        <div class="row row_f_l">
+                            <button class="favourite big_favourite" event-id="{{this.event_id}}" data-toggle="tooltip" title="Προσθήκη στα Αγαπημένα"><i  class="far fa-heart"></i></button>
+                            <button class="like big_like" event-id="{{this.event_id}}"><i class="far fa-thumbs-up"></i></button>
+                            <span class="like_counter" event-id="{{this.event_id}}"></span>
+                        </div>
+
+                        <div class="row row_inside" style="border-top: 1px solid #d3d3d3;">
+                            <a href="/articles/{{this.event_id}}" class="art_link"><p>{{{this.title}}}</p></a>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+            
+
+
+        </div>
+
+        
+        <script src="/js/category_background.js"></script>
+
+        
+
